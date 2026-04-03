@@ -74,6 +74,10 @@ function App() {
       />
       
       <DataDisplay data={filteredData} loading={loading} error={error} />
+      
+      <footer style={{ marginTop: '20px', padding: '10px', borderTop: '1px solid #ccc' }}>
+        <p>© 2026 Lifecycle Lighthouse - All rights reserved</p>
+      </footer>
     </div>
   );
 }
