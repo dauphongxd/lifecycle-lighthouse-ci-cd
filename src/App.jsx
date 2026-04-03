@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import StatusPanel from "./Components/StatusPanel";
 import ControlPanel from "./Components/ControlPanel";
 import DataDisplay from "./Components/DataDisplay";
@@ -10,7 +10,7 @@ function App() {
   const [filter, setFilter] = useState("All");
   const [beaconStatus, setBeaconStatus] = useState("OFF");
 
-  const simulateFetch = () => {
+  const simulateFetch = useCallback(() => {
     setLoading(true);
     setError(null);
     setData([]);
@@ -37,11 +37,11 @@ function App() {
       }
       setLoading(false);
     }, 2000);
-  };
+  }, []);
 
   useEffect(() => {
     simulateFetch();
-  }, []);
+  }, [simulateFetch]);
 
   useEffect(() => {
     const beaconInterval = setInterval(() => {
